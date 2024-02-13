@@ -8,6 +8,7 @@ import Home from "./pages/Home";
 import { useSelector } from "react-redux";
 import ProtectedRoute from "./components/ProtectedRoute";
 import PublicRoute from "./components/PublicRoute";
+import ApplyDoctor from "./pages/ApplyDoctor";
 import Notifications from "./pages/Notifications";
 import PromotionsList from "./pages/Admin/PromotionsList";
 import FormationsList from "./pages/Admin/FormationsList";
@@ -15,6 +16,7 @@ import Profile from "./pages/Profile";
 import FormationForm from "./pages/Admin/FormationForm";
 import PromotionForm from "./pages/Admin/PromotionForm";
 import EtudiantForm from "./pages/Admin/EtudiantForm";
+import Appointments from "./pages/Appointments";
 import EtudiantsList from "./pages/Admin/EtudiantsList";
 
 function App() {
@@ -61,6 +63,14 @@ function App() {
           }
         />
         <Route
+          path="/apply-doctor"
+          element={
+            <ProtectedRoute>
+              <ApplyDoctor />
+            </ProtectedRoute>
+          }
+        />
+        <Route
           path="/profile"
           element={
             <ProtectedRoute>
@@ -98,6 +108,24 @@ function App() {
           element={
             <ProtectedRoute>
               <FormationsList />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/doctor/profile/:userId"
+          element={
+            <ProtectedRoute>
+              <Profile />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/appointments"
+          element={
+            <ProtectedRoute>
+              <Appointments />
             </ProtectedRoute>
           }
         />

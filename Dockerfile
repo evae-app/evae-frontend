@@ -1,20 +1,21 @@
-# pull official base image
-FROM node:20.11.0
+# Utiliser une image de base Node.js
+FROM node:alpine
 
-# set working directory
+# Définir le répertoire de travail dans le conteneur
 WORKDIR /app
 
-# add /app/node_modules/.bin to $PATH
-ENV PATH /app/node_modules/.bin:$PATH
+# Copier les fichiers package.json et package-lock.json (ou yarn.lock) dans le répertoire de travail
+COPY package*.json ./
 
-# install app dependencies
-COPY package.json ./
-COPY package-lock.json ./
-RUN npm install --silent
-RUN npm install react-scripts@3.4.1 -g --silent
+# Installer les dépendances
+RUN npm install
 
-# add app
-COPY . ./
+# Copier le reste des fichiers de l'application
+COPY . .
 
-# start app
+# Exposer le port sur lequel l'application va s'exécuter
+EXPOSE 3000
+
+# Lancer l'application
 CMD ["npm", "start"]
+
