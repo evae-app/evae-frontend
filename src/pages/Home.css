@@ -1,0 +1,48 @@
+.custom-card {
+    border-radius: 10px;
+    transition: transform 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+  
+  .card-content {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+  }
+  
+  .icon-container {
+    background-color: #005555;
+    border-radius: 50%;
+    padding: 10px;
+    margin-right: 16px;
+  }
+  
+  .icon-background {
+    background-color: #fff;
+    border-radius: 50%;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .icon {
+    font-size: 36px;
+    color: #005555; 
+  }
+  
+  h3 {
+    font-size: 1.5em;
+    font-weight: 200;
+    margin: 0;
+  }
+  
+  p {
+    color: #999;
+    margin: 0;
+  }
+  
